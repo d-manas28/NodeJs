@@ -1,0 +1,13 @@
+const http  = require('http');
+const fs = require('fs');
+function onRequest(req,res)
+{
+    fs.readFile(__dirname+'/index.html','utf8',function(err,htmlString){
+     console.log('Inside Function of readFile');   
+   		res.end(htmlString);	
+    });
+console.log('inside function of onRequest');
+}
+console.log("Global calling");
+const server  = http.createServer(onRequest);
+server.listen(8000);
