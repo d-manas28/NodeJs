@@ -1,0 +1,4 @@
+//Basics Setup of NodeJs, creating server
+const http = require('http');
+const server = http.createServer(onRequest);
+server.listen(8000);
