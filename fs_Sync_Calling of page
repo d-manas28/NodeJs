@@ -1,0 +1,11 @@
+const http = require('http');
+const fs = require('fs');
+function onRequest(req, res)
+{
+    console.log('We Got First Request');
+    const htmlstring = fs.readFileSync(__dirname+'/index.html','utf8');
+    res.end(htmlstring);
+
+}
+const server = http.createServer(onRequest);
+server.listen(8000);
