@@ -1,0 +1,20 @@
+const http = require('http');
+const fs = require('fs');
+function onRequest(req,res)
+{
+    console.log("url is: "+req.url);
+    if(req.url=='/index')
+    {
+        const stream = fs.createReadStream(__dirname+'/index.html','utf8');
+        stream.pipe(res);
+    }
+    else if(req.url=='/search')
+    {
+        const stream = fs.createReadStream(__dirname+'/search.html','utf8');
+        stream.pipe(res);    
+    }
+    else
+    console.log("ERROR!");
+}
+const server = http.createServer(onRequest);
+server.listen(8000);
