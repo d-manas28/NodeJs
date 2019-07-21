@@ -1,0 +1,12 @@
+const http = require('http');
+const fs = require('fs');
+function onRequest(req, res)
+{
+    res.end('<!DOCTYPE html><html><head><title>'+
+   'index.html</title></head><body><div><h1>Hello World!'+
+   '</h1><p>Index---->O Sikandar By Kailash Kher</p>'+
+   '</div></body></html>'
+   );
+}
+const server = http.createServer(onRequest);
+server.listen(8000);
